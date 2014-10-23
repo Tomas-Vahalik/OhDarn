@@ -1,0 +1,36 @@
+import java.util.*;
+public class otoceni2
+{	
+	public static void main(String [] args)
+	{
+		Scanner in = new Scanner( System.in );
+
+		ArrayList<Integer> cisla = new ArrayList<Integer>();
+
+		int pocet = 0;
+				
+		while ( in.hasNextInt() )
+		{	
+			int a = in.nextInt();
+			cisla.add(a); 
+			pocet++; 
+		}
+		System.out.println("neotocena cisla: ");
+		for(int i = 0; i<cisla.size(); i++)
+		{	
+			
+			System.out.printf(" %d", cisla.get(i));
+		}
+		System.out.println();
+		otoc(cisla);
+	}
+
+	public static void otoc (ArrayList<Integer> cisla)
+	{	
+		System.out.println("otocena cisla: ");
+		for( int x = cisla.size() - 1; x>=0; x-- )
+		{	
+			System.out.printf(" %d",  cisla.get(x) );	
+		}
+	}
+}
