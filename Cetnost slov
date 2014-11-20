@@ -1,0 +1,53 @@
+package lekce11;
+import java.io.IOException;
+import java.util.*;
+public class Cetnost {
+	public static void main(String [] args) throws IOException{
+		Slovo [] slova = new Slovo[100];
+		int pozice = 0;
+		String znaky = "";
+		Slovo slovo = null;
+		Scanner in = new Scanner(System.in);
+		
+		boolean poprve = true;
+		
+		while(true){
+			
+			 int znak = System.in.read();
+			 if(znak == -1){
+				 break;
+			 }
+			char pismeno = (char)znak;
+			
+			if(pismeno ==  ' '){
+				if(pozice == 0){
+					
+					slova [0] = new Slovo(znaky, 1);
+					pozice ++;
+				}
+				else{
+					for(int x = 0; x< pozice; x++){
+						if(slova[x].znam(znaky)){
+							slova[x].pridej();
+							
+					}
+				}
+					
+					
+					
+			}
+			znaky += pismeno;
+				}
+					
+				}
+					
+						
+		}
+		System.out.println(slova.size());
+		for(int i = 0;i<=slova.size(); i++){
+			
+			System.out.println("Slovo " + slova.get(i).VratSlovo() + " se objevuje " + slova.get(i).VratPocet() + " krat");
+			
+		}
+	}
+}
