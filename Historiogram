@@ -1,0 +1,78 @@
+import java.util.*;
+public class Historiogram{
+
+	public static void main(String [] args){
+		
+		ArrayList<Integer> zadano = nacti();
+		
+		//int [] zadano1 = (int [])zadano.toArray(new int [zadano.size()]);
+		
+		Cislo [] cisla = new Cislo [zadano.size()];
+		
+		for(int i = 0; i < cisla.length; i++){
+			cisla[i] = new Cislo();
+		}
+				
+		for(int a = 0; a < zadano.size(); a++){
+			boolean znam = false;
+
+			for(int b = 0; b<cisla.length;b++){
+				
+				if(zadano.get(a) == cisla[b].vratHodnotu()){
+
+					cisla[b].pridej();
+					znam = true;
+				}			
+			}
+			if(!znam){
+			cisla[a].zmenHodnotu(zadano.get(a));
+				cisla[a].pridej();
+			}
+			
+		}
+		int Maximum = najdiMaximum(cisla);
+		/*for(int i = 0; i<=Maximum;i++){
+			
+			if(i == cisla[i]. vratHodnotu()){
+				System.out.println(cisla[i]. vratHodnotu() + " " + cisla[i].vratPocet());
+			}
+			else{
+				System.out.println(i + " " + 0);
+			}
+		}*/
+
+		for(int i = 0; i<cisla.length; i++){
+			if(cisla[i].vratPocet() == 0){
+				continue;
+			}
+			System.out.println(cisla[i]. vratHodnotu() + " " + cisla[i].vratPocet());
+		}
+				
+
+	}
+
+	public static ArrayList<Integer> nacti() {
+		
+		ArrayList <Integer> Neco = new ArrayList<Integer>();
+		Scanner in = new Scanner(System.in);
+
+		while(in.hasNextInt()){
+			
+			int a = in.nextInt();
+			Neco.add(a);
+					
+		}
+		return Neco;
+	}
+	public static int najdiMaximum(Cislo [] c){
+		int a = 0;
+		
+		for(int x = 0; x<c.length; x++){
+			if(c[x].vratHodnotu()>a){
+				a = c[x].vratHodnotu();
+			}
+		}
+		return a;
+	}
+
+}
